@@ -22,9 +22,9 @@ const fetchDetail = async (req) => {
 }
 
 const store = async (req) => {
-  const { id, name, qty, picture, expiredAt, isActive } = req.body
+  const { id, name, qty, picture, expiredAt } = req.body
   try {
-    const store = await db(table).insert({id: id, name: name, qty: qty, picture: picture, expiredAt: expiredAt, isActive: isActive})
+    const store = await db(table).insert({id: id, name: name, qty: qty, picture: picture, expiredAt: expiredAt, isActive: true})
     return store
   } catch(e) {
     return e.sqlMessage
